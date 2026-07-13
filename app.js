@@ -236,7 +236,7 @@
   }
 
   function hasWebSds(record) { return /^https?:\/\//i.test(record.sdsLink || ""); }
-  function recordCardTemplate(record) { return `<button class="card" type="button" data-record-id="${escapeHtml(record.id)}"><h3>${escapeHtml(record.name)}</h3><p>${escapeHtml([record.company, record.productCode ? `Code ${record.productCode}` : "", record.use].filter(Boolean).join(" - "))}</p><p><strong>Storage:</strong> ${escapeHtml(record.storageLocation || "Not listed")}</p><p><strong>Review:</strong> ${escapeHtml(record.lastReviewDate || record.revisionDate || "Not listed")}</p><div class="badges">${hasWebSds(record) ? `<span class="badge badge-linked">SDS linked</span>` : `<span class="badge badge-warning">SDS link missing</span>`}</div></button>`; }
+  function recordCardTemplate(record) { return `<button class="card" type="button" data-record-id="${escapeHtml(record.id)}"><h3>${escapeHtml(record.name)}</h3><p>${escapeHtml(record.company || "Company not listed")}</p><div class="badges">${hasWebSds(record) ? `<span class="badge badge-linked">SDS linked</span>` : `<span class="badge badge-warning">SDS link missing</span>`}</div></button>`; }
 
   function bindEvents() {
     document.getElementById("changeLocation")?.addEventListener("click", clearLocation);
