@@ -411,15 +411,15 @@ a {
 
 .card {
   text-align: left;
-  min-height: 245px;
+  min-height: 138px;
   border: 1px solid #17243b;
-  border-radius: 24px;
+  border-radius: 18px;
   background: linear-gradient(180deg, #06101d 0%, #09111f 100%);
   color: var(--text);
-  padding: 1.1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: .7rem;
+  gap: .55rem;
   cursor: pointer;
   transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
 }
@@ -432,15 +432,15 @@ a {
 
 .card h3 {
   margin: 0;
-  font-size: 1.12rem;
-  line-height: 1.2;
+  font-size: 1.08rem;
+  line-height: 1.18;
   font-weight: 950;
 }
 
 .card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.45;
+  line-height: 1.35;
   font-size: .92rem;
 }
 
@@ -448,7 +448,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: .45rem;
-  margin-top: auto;
+  margin-top: .25rem;
 }
 
 .badge {
