@@ -243,7 +243,7 @@
     document.getElementById("requestChemical")?.addEventListener("click", showChemicalRequestForm);
     document.getElementById("searchInput")?.addEventListener("input", (event) => { state.query = event.target.value; applyFilters(); });
     document.getElementById("searchButton")?.addEventListener("click", applyFilters);
-    document.getElementById("cards")?.addEventListener("click", (event) => { const card = event.target.closest("[data-record-id]"); if (!card) return; const record = state.records.find((item) => item.id === card.dataset.recordId); if (record) showDetail(record); });
+    document.getElementById("cards")?.addEventListener("click", (event) => { const card = event.target.closest("[data-record-id]"); if (!card) return; const record = state.records.find((item) => item.id === card.dataset.recordId); if (record) openRecord(record); });
   }
 
   function applyFilters() {
@@ -260,6 +260,14 @@
     const panel = document.createElement("div"); panel.className = "detail-backdrop";
     panel.innerHTML = genericDetailTemplate(record);
     document.body.appendChild(panel); const closeButton = panel.querySelector(".close"); closeButton?.focus(); closeButton?.addEventListener("click", () => panel.remove()); panel.addEventListener("click", (event) => { if (event.target === panel) panel.remove(); }); document.addEventListener("keydown", function escapeHandler(event) { if (event.key === "Escape") { panel.remove(); document.removeEventListener("keydown", escapeHandler); } });
+  }
+
+  function openRecord(record) {
+    if (currentLocation().slug === "langhorne-pa" && hasWebSds(record)) {
+      window.open(record.sdsLink, "_blank", "noopener,noreferrer");
+      return;
+    }
+    showDetail(record);
   }
 
   function genericDetailTemplate(record) {
