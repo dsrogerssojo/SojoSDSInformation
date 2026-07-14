@@ -263,7 +263,7 @@
   }
 
   function openRecord(record) {
-    if (currentLocation().slug === "langhorne-pa" && hasWebSds(record)) {
+    if (hasWebSds(record)) {
       window.open(record.sdsLink, "_blank", "noopener,noreferrer");
       return;
     }
